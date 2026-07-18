@@ -1,0 +1,527 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ค่าธรรมเนียมรายปีสิทธิบัตร — Patent To You</title>
+<style>
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1b1917; --surface: #232120; --surface-2: #2b2926;
+      --ink: #ede9e2; --ink-dim: #a8a296; --border: #3a3733;
+      --accent: #8ea1c7; --accent-soft: #26344a; --accent-ink: #e7ecf5;
+      --critical: #e5766b; --critical-soft: #402221; --critical-ink: #ffd9d5;
+      --warning: #e0a83d; --warning-soft: #40330f; --warning-ink: #ffe8bb;
+      --good: #6fcb94; --good-soft: #1c3627; --good-ink: #cdf2dc;
+      --neutral-pill: #8b8d8e; --neutral-soft: #33312e;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  :root {
+    --bg: #f5f3ee; --surface: #ffffff; --surface-2: #edeadf;
+    --ink: #23241f; --ink-dim: #5b5a54; --border: #ddd8cc;
+    --accent: #2e3d59; --accent-soft: #dde3ec; --accent-ink: #1c2740;
+    --critical: #a8362a; --critical-soft: #f7dedc; --critical-ink: #7a231a;
+    --warning: #93590a; --warning-soft: #f6e6c8; --warning-ink: #6b3f04;
+    --good: #23663f; --good-soft: #dceee1; --good-ink: #184a2d;
+    --neutral-pill: #6b6d6e; --neutral-soft: #eceae4;
+    --shadow: 0 1px 2px rgba(30,25,15,.05), 0 8px 24px rgba(30,25,15,.06);
+  }
+  :root[data-theme="dark"] {
+    --bg: #1b1917; --surface: #232120; --surface-2: #2b2926;
+    --ink: #ede9e2; --ink-dim: #a8a296; --border: #3a3733;
+    --accent: #8ea1c7; --accent-soft: #26344a; --accent-ink: #e7ecf5;
+    --critical: #e5766b; --critical-soft: #402221; --critical-ink: #ffd9d5;
+    --warning: #e0a83d; --warning-soft: #40330f; --warning-ink: #ffe8bb;
+    --good: #6fcb94; --good-soft: #1c3627; --good-ink: #cdf2dc;
+    --neutral-pill: #8b8d8e; --neutral-soft: #33312e;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+  }
+  :root[data-theme="light"] {
+    --bg: #f5f3ee; --surface: #ffffff; --surface-2: #edeadf;
+    --ink: #23241f; --ink-dim: #5b5a54; --border: #ddd8cc;
+    --accent: #2e3d59; --accent-soft: #dde3ec; --accent-ink: #1c2740;
+    --critical: #a8362a; --critical-soft: #f7dedc; --critical-ink: #7a231a;
+    --warning: #93590a; --warning-soft: #f6e6c8; --warning-ink: #6b3f04;
+    --good: #23663f; --good-soft: #dceee1; --good-ink: #184a2d;
+    --neutral-pill: #6b6d6e; --neutral-soft: #eceae4;
+    --shadow: 0 1px 2px rgba(30,25,15,.05), 0 8px 24px rgba(30,25,15,.06);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: "Segoe UI", "Noto Sans Thai", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .display { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Noto Serif Thai", serif; }
+
+  a { color: var(--accent); }
+
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 28px 24px 80px; }
+
+  header.top {
+    display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+    gap: 12px 24px; padding-bottom: 20px; border-bottom: 2px solid var(--ink);
+    margin-bottom: 24px;
+  }
+  header.top .brand { display: flex; align-items: baseline; gap: 10px; }
+  header.top .mark {
+    font-family: "Iowan Old Style", Palatino, Georgia, serif;
+    font-weight: 700; font-size: 1.05rem; letter-spacing: .02em;
+    color: var(--accent);
+  }
+  header.top h1 {
+    font-size: 1.6rem; margin: 2px 0 0; text-wrap: balance;
+  }
+  header.top .meta { color: var(--ink-dim); font-size: .85rem; text-align: right; }
+
+  .kpis {
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px;
+    margin-bottom: 22px;
+  }
+  @media (max-width: 900px) { .kpis { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 560px) { .kpis { grid-template-columns: repeat(2, 1fr); } }
+  .kpi {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 12px 14px; box-shadow: var(--shadow);
+  }
+  .kpi .n { font-size: 1.5rem; font-weight: 700; font-family: "Iowan Old Style", Palatino, Georgia, serif; }
+  .kpi .l { font-size: .72rem; color: var(--ink-dim); text-transform: uppercase; letter-spacing: .05em; margin-top: 2px; }
+  .kpi.critical .n { color: var(--critical); }
+  .kpi.warning .n { color: var(--warning); }
+  .kpi.good .n { color: var(--good); }
+
+  .toolbar {
+    display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+    margin-bottom: 14px; position: sticky; top: 0; background: var(--bg);
+    padding: 10px 0; z-index: 5; border-bottom: 1px solid var(--border);
+  }
+  .toolbar input[type="search"] {
+    flex: 1 1 240px; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border);
+    background: var(--surface); color: var(--ink); font-size: .9rem;
+  }
+  .chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    border: 1px solid var(--border); background: var(--surface); color: var(--ink-dim);
+    padding: 6px 12px; border-radius: 999px; font-size: .8rem; cursor: pointer;
+    user-select: none; white-space: nowrap;
+  }
+  .chip:hover { border-color: var(--accent); }
+  .chip.active { background: var(--accent); border-color: var(--accent); color: var(--surface); font-weight: 600; }
+  .chip.active.crit-chip { background: var(--critical); border-color: var(--critical); }
+  .chip.active.warn-chip { background: var(--warning); border-color: var(--warning); }
+  .chip.active.good-chip { background: var(--good); border-color: var(--good); }
+
+  select#sortSel {
+    padding: 7px 10px; border-radius: 8px; border: 1px solid var(--border);
+    background: var(--surface); color: var(--ink); font-size: .82rem;
+  }
+
+  .count-line { color: var(--ink-dim); font-size: .82rem; margin: 4px 0 12px; }
+
+  .tablewrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); box-shadow: var(--shadow); }
+  table.main { width: 100%; border-collapse: collapse; font-size: .85rem; min-width: 920px; }
+  table.main thead th {
+    text-align: left; padding: 10px 10px; background: var(--surface-2); color: var(--ink-dim);
+    font-size: .72rem; text-transform: uppercase; letter-spacing: .04em; font-weight: 600;
+    border-bottom: 1px solid var(--border); white-space: nowrap;
+  }
+  table.main tbody td { padding: 10px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  table.main tbody tr.row { cursor: pointer; }
+  table.main tbody tr.row:hover { background: var(--surface-2); }
+  table.main tbody tr.row.expanded { background: var(--surface-2); }
+  td.num, th.num { text-align: right; }
+  td.name-cell { max-width: 260px; }
+  td.name-cell .nm { font-weight: 600; }
+  td.name-cell .sub { color: var(--ink-dim); font-size: .78rem; }
+
+  .pill {
+    display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px; border-radius: 999px;
+    font-size: .72rem; font-weight: 700; white-space: nowrap;
+  }
+  .pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .pill.crit { background: var(--critical-soft); color: var(--critical-ink); }
+  .pill.warn { background: var(--warning-soft); color: var(--warning-ink); }
+  .pill.good { background: var(--good-soft); color: var(--good-ink); }
+  .pill.neu  { background: var(--neutral-soft); color: var(--ink-dim); }
+
+  .type-tag { font-size: .72rem; color: var(--ink-dim); }
+
+  tr.detail-row td {
+    background: var(--surface-2); padding: 0; border-bottom: 1px solid var(--border);
+  }
+  .detail-inner { padding: 14px 16px 18px; }
+  .detail-inner h4 { margin: 0 0 8px; font-size: .82rem; color: var(--ink-dim); text-transform: uppercase; letter-spacing: .04em; }
+  table.sched { width: 100%; border-collapse: collapse; font-size: .8rem; background: var(--surface); border-radius: 8px; overflow: hidden; }
+  table.sched th { background: var(--surface-2); text-align: left; padding: 6px 8px; font-size: .68rem; text-transform: uppercase; color: var(--ink-dim); }
+  table.sched td { padding: 6px 8px; border-top: 1px solid var(--border); }
+  table.sched tr.paid td { color: var(--ink-dim); }
+  table.sched tr.lapsed td { color: var(--critical-ink); }
+
+  .empty-msg { text-align: center; padding: 40px; color: var(--ink-dim); }
+
+  .refs { margin-top: 48px; }
+  .refs summary {
+    cursor: pointer; font-family: "Iowan Old Style", Palatino, Georgia, serif; font-size: 1.15rem;
+    padding: 10px 0; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--border);
+  }
+  .refgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 18px 0; }
+  @media (max-width: 900px) { .refgrid { grid-template-columns: 1fr; } }
+  .refcard { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; box-shadow: var(--shadow); }
+  .refcard h3 { margin: 0 0 8px; font-size: .95rem; }
+  .refcard table { width: 100%; border-collapse: collapse; font-size: .8rem; }
+  .refcard td, .refcard th { padding: 4px 4px; border-bottom: 1px solid var(--border); }
+  .refcard th { text-align: left; color: var(--ink-dim); font-weight: 600; }
+  .refcard td.num { text-align: right; }
+  .refcard .lump { margin-top: 8px; font-size: .78rem; color: var(--ink-dim); }
+
+  footer.foot {
+    margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border);
+    color: var(--ink-dim); font-size: .78rem;
+  }
+  footer.foot a { color: var(--ink-dim); text-decoration: underline; }
+
+  table.main tbody tr.row { box-shadow: inset 4px 0 0 var(--row-accent, transparent); }
+  .name-cell .owner { font-size: .78rem; color: var(--ink); margin: 1px 0; }
+  .daynote { font-size: .72rem; margin-top: 3px; font-weight: 600; }
+  .daynote.over { color: var(--critical); }
+  .daynote.soon { color: var(--warning); }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <span class="mark">Patent To You</span>
+      <h1 class="display">รายงานค่าธรรมเนียมรายปีสิทธิบัตร/อนุสิทธิบัตร</h1>
+    </div>
+    <div class="meta">
+      ค่าธรรมเนียม/สถานะชำระจากระบบกรมฯ ณ __FEE_DATE__ · ชื่อผู้ขอตรวจสอบจาก search.ipthailand.go.th ครั้งล่าสุด 18 ก.ค. 2569<br>
+      สิทธิบัตรที่จดทะเบียนแล้วทั้งหมด __TOTAL_COUNT__ รายการ
+    </div>
+  </header>
+
+  <div class="kpis" id="kpis"></div>
+
+  <div class="toolbar">
+    <input type="search" id="searchBox" placeholder="ค้นหา: เลขที่คำขอ, เลขที่สิทธิบัตร, ชื่อสิ่งประดิษฐ์/แบบผลิตภัณฑ์...">
+    <div class="chip-row" id="statusChips"></div>
+    <div class="chip-row" id="typeChips"></div>
+    <select id="sortSel">
+      <option value="urgency">เรียงตาม: ความเร่งด่วน</option>
+      <option value="due_asc">วันครบกำหนดเร็วสุดก่อน</option>
+      <option value="due_desc">วันครบกำหนดช้าสุดก่อน</option>
+      <option value="amount_desc">ยอดเงินมากสุดก่อน</option>
+      <option value="appno">เลขที่คำขอ</option>
+    </select>
+  </div>
+
+  <div class="count-line" id="countLine"></div>
+
+  <div class="tablewrap">
+    <table class="main">
+      <thead>
+        <tr>
+          <th>สถานะ</th>
+          <th>ประเภท</th>
+          <th>เลขที่คำขอ</th>
+          <th>เลขที่สิทธิบัตร/อนุสิทธิบัตร</th>
+          <th>ชื่อการประดิษฐ์ / แบบผลิตภัณฑ์</th>
+          <th>ปีที่ค้าง</th>
+          <th>วันครบกำหนดชำระ</th>
+          <th class="num">ยอดชำระ (บาท)</th>
+          <th>ชำระได้ถึงวันที่</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <details class="refs">
+    <summary>อัตราค่าธรรมเนียมรายปีอย่างเป็นทางการ (กรมทรัพย์สินทางปัญญา)</summary>
+    <div class="refgrid">
+      <div class="refcard">
+        <h3>สิทธิบัตรการประดิษฐ์ (Invention Patent)</h3>
+        <table>
+          <thead><tr><th>ปีที่</th><th class="num">ค่าธรรมเนียม (บาท)</th></tr></thead>
+          <tbody>
+            <tr><td>5</td><td class="num">1,000</td></tr>
+            <tr><td>6</td><td class="num">1,200</td></tr>
+            <tr><td>7</td><td class="num">1,600</td></tr>
+            <tr><td>8</td><td class="num">2,200</td></tr>
+            <tr><td>9</td><td class="num">3,000</td></tr>
+            <tr><td>10</td><td class="num">4,000</td></tr>
+            <tr><td>11</td><td class="num">5,200</td></tr>
+            <tr><td>12</td><td class="num">6,600</td></tr>
+            <tr><td>13</td><td class="num">8,200</td></tr>
+            <tr><td>14</td><td class="num">10,000</td></tr>
+            <tr><td>15</td><td class="num">12,000</td></tr>
+            <tr><td>16</td><td class="num">14,200</td></tr>
+            <tr><td>17</td><td class="num">16,600</td></tr>
+            <tr><td>18</td><td class="num">19,200</td></tr>
+            <tr><td>19</td><td class="num">22,000</td></tr>
+            <tr><td>20</td><td class="num">25,000</td></tr>
+          </tbody>
+        </table>
+        <div class="lump">หรือชำระครั้งเดียวตอนยื่นคำขอ 140,000 บาท</div>
+      </div>
+
+      <div class="refcard">
+        <h3>อนุสิทธิบัตร (Petty Patent)</h3>
+        <table>
+          <thead><tr><th>ปีที่</th><th class="num">ค่าธรรมเนียม (บาท)</th></tr></thead>
+          <tbody>
+            <tr><td>5</td><td class="num">750</td></tr>
+            <tr><td>6</td><td class="num">1,500</td></tr>
+          </tbody>
+        </table>
+        <div class="lump">หรือชำระครั้งเดียว 2,000 บาท</div>
+        <h3 style="margin-top:14px;">ค่าต่ออายุอนุสิทธิบัตร</h3>
+        <table>
+          <thead><tr><th>ครั้งที่</th><th class="num">ค่าธรรมเนียม (บาท)</th></tr></thead>
+          <tbody>
+            <tr><td>1 (ปีที่ 7–8)</td><td class="num">6,000</td></tr>
+            <tr><td>2 (ปีที่ 9–10)</td><td class="num">9,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="refcard">
+        <h3>สิทธิบัตรการออกแบบผลิตภัณฑ์ (Design Patent)</h3>
+        <table>
+          <thead><tr><th>ปีที่</th><th class="num">ค่าธรรมเนียม</th><th class="num">รวมค่าปรับ*</th></tr></thead>
+          <tbody>
+            <tr><td>5</td><td class="num">500</td><td class="num">650</td></tr>
+            <tr><td>6</td><td class="num">650</td><td class="num">845</td></tr>
+            <tr><td>7</td><td class="num">950</td><td class="num">1,235</td></tr>
+            <tr><td>8</td><td class="num">1,400</td><td class="num">1,820</td></tr>
+            <tr><td>9</td><td class="num">2,000</td><td class="num">2,600</td></tr>
+            <tr><td>10</td><td class="num">2,750</td><td class="num">3,575</td></tr>
+          </tbody>
+        </table>
+        <div class="lump">หรือชำระครั้งเดียว 7,500 บาท · *ต้องชำระภายใน 120 วันนับจากวันสิ้นปีก่อนหน้า</div>
+      </div>
+    </div>
+    <p style="color:var(--ink-dim); font-size:.82rem;">
+      แหล่งข้อมูล:
+      <a href="https://www.ipthailand.go.th/th/patent-006.html" target="_blank" rel="noopener">ค่าธรรมเนียมสิทธิบัตร/อนุสิทธิบัตร (ipthailand.go.th)</a> ·
+      <a href="https://www.ipthailand.go.th/th/design-patent-006.html" target="_blank" rel="noopener">ค่าธรรมเนียมสิทธิบัตรการออกแบบ (ipthailand.go.th)</a>
+    </p>
+  </details>
+
+  <footer class="foot">
+    <p>
+      ดึงข้อมูลค่าธรรมเนียม/สถานะชำระอัตโนมัติทุกสัปดาห์จากระบบตรวจสอบค่าธรรมเนียมรายปีของกรมทรัพย์สินทางปัญญา
+      (<a href="https://patentpub.ipthailand.go.th/" target="_blank" rel="noopener">patentpub.ipthailand.go.th</a>) — อัปเดตล่าสุด __FEE_DATE__
+      ชื่อผู้ขอ/เจ้าของสิทธิบัตรตรวจสอบจาก <a href="https://search.ipthailand.go.th/" target="_blank" rel="noopener">search.ipthailand.go.th</a> ครั้งล่าสุดเมื่อ 18 ก.ค. 2569 (ไม่ได้ตรวจซ้ำอัตโนมัติทุกสัปดาห์ เนื่องจากเว็บนี้ต้องผ่านการยืนยันตัวตนด้วยตนเอง)
+      สถานะ "เลยกำหนด/หมดอายุ" ในรายงานนี้คำนวณจากวันสุดท้ายที่ชำระได้เทียบกับวันที่ปัจจุบันโดยตรง ไม่ได้อิงป้าย "หมดอายุ" ที่กรมฯ ติดไว้อย่างเดียว (กรมฯ บางรายการติดป้ายล่าช้ากว่าความเป็นจริง)
+      กรุณายืนยันกับกรมทรัพย์สินทางปัญญาอีกครั้งก่อนแจ้งลูกค้าหรือดำเนินการชำระเงิน
+    </p>
+    <p>หมายเหตุ: พบเลขที่คำขอ 2203002391 ในโฟลเดอร์ Granted ซึ่งไม่มีข้อมูลในระบบกรมฯ (อาจเป็นการพิมพ์เลขที่คำขอผิด ใกล้เคียงกับ 2303002391 ที่มีข้อมูลถูกต้องและมีอยู่ในรายงานนี้แล้ว) จึงไม่รวมไว้ในรายงานนี้</p>
+  </footer>
+</div>
+
+<script id="patentData" type="application/json">__PATENT_DATA__</script>
+<script>
+(function() {
+  const patents = JSON.parse(document.getElementById('patentData').textContent);
+  const tbody = document.getElementById('tbody');
+  const kpis = document.getElementById('kpis');
+  const countLine = document.getElementById('countLine');
+  const searchBox = document.getElementById('searchBox');
+  const sortSel = document.getElementById('sortSel');
+
+  const TYPE_LABEL = {
+    'อนุสิทธิบัตร': 'อนุสิทธิบัตร',
+    'สิทธิบัตรการประดิษฐ์': 'สิทธิบัตรการประดิษฐ์',
+    'สิทธิบัตรออกแบบ': 'สิทธิบัตรออกแบบ',
+  };
+
+  function status(p) {
+    if (p.fp) return 'paid';
+    if (p.fd) {
+      const days = (new Date(p.fd) - new Date()) / 86400000;
+      if (days < 0) return 'critical';
+      if (p.lp) return 'critical';
+      if (days <= 90) return 'warning';
+      return 'ok';
+    }
+    if (p.lp) return 'critical';
+    return 'ok';
+  }
+
+  function daysNote(p) {
+    if (p.fp || !p.fd) return '';
+    const days = Math.round((new Date(p.fd) - new Date()) / 86400000);
+    if (days < 0) return '<div class="daynote over">เลยกำหนดมาแล้ว ' + Math.abs(days).toLocaleString('th-TH') + ' วัน</div>';
+    if (days <= 90) return '<div class="daynote soon">เหลืออีก ' + days + ' วัน</div>';
+    return '';
+  }
+
+  const STRIPE = { critical: 'var(--critical)', warning: 'var(--warning)', ok: 'transparent', paid: 'var(--good)' };
+
+  function pill(p) {
+    const s = status(p);
+    if (s === 'paid') return '<span class="pill good">ชำระครบแล้ว</span>';
+    if (s === 'critical') return '<span class="pill crit">เลยกำหนด/หมดอายุ</span>';
+    if (s === 'warning') return '<span class="pill warn">ใกล้ครบกำหนด</span>';
+    return '<span class="pill neu">รอครบกำหนด</span>';
+  }
+
+  let state = { q: '', statusFilter: 'all', typeFilter: 'all', sort: 'urgency', expanded: new Set() };
+
+  function matches(p) {
+    if (state.typeFilter !== 'all' && p.t !== state.typeFilter) return false;
+    const s = status(p);
+    if (state.statusFilter !== 'all' && s !== state.statusFilter) return false;
+    if (state.q) {
+      const hay = (p.a + ' ' + (p.p||'') + ' ' + (p.n||'') + ' ' + (p.o||'')).toLowerCase();
+      if (!hay.includes(state.q.toLowerCase())) return false;
+    }
+    return true;
+  }
+
+  function sortFn(a, b) {
+    if (state.sort === 'appno') return a.a.localeCompare(b.a);
+    if (state.sort === 'amount_desc') {
+      const av = a.na ? parseFloat(a.na.amount.replace(/,/g,'')) : -1;
+      const bv = b.na ? parseFloat(b.na.amount.replace(/,/g,'')) : -1;
+      return bv - av;
+    }
+    const ad = a.fd || '9999-99-99', bd = b.fd || '9999-99-99';
+    if (state.sort === 'due_desc') return bd.localeCompare(ad);
+    if (state.sort === 'due_asc') return ad.localeCompare(bd);
+    // urgency: critical first, then warning/ok by date, paid last
+    const rank = { critical: 0, warning: 1, ok: 1, paid: 2 };
+    const ra = rank[status(a)], rb = rank[status(b)];
+    if (ra !== rb) return ra - rb;
+    return ad.localeCompare(bd);
+  }
+
+  function fmtDate(iso) {
+    if (!iso) return '—';
+    const d = new Date(iso);
+    return d.toLocaleDateString('th-TH', { year: 'numeric', month: 'short', day: 'numeric' });
+  }
+
+  function renderKpis() {
+    const total = patents.length;
+    const byType = {};
+    patents.forEach(p => byType[p.t] = (byType[p.t]||0)+1);
+    const critical = patents.filter(p => status(p)==='critical').length;
+    const warning = patents.filter(p => status(p)==='warning').length;
+    const paid = patents.filter(p => status(p)==='paid').length;
+    kpis.innerHTML = `
+      <div class="kpi"><div class="n">${total}</div><div class="l">สิทธิบัตรทั้งหมด</div></div>
+      <div class="kpi"><div class="n">${byType['อนุสิทธิบัตร']||0}</div><div class="l">อนุสิทธิบัตร</div></div>
+      <div class="kpi"><div class="n">${byType['สิทธิบัตรออกแบบ']||0}</div><div class="l">สิทธิบัตรออกแบบ</div></div>
+      <div class="kpi"><div class="n">${byType['สิทธิบัตรการประดิษฐ์']||0}</div><div class="l">สิทธิบัตรการประดิษฐ์</div></div>
+      <div class="kpi critical"><div class="n">${critical}</div><div class="l">เลยกำหนด/หมดอายุ</div></div>
+      <div class="kpi warning"><div class="n">${warning}</div><div class="l">ใกล้ครบกำหนด (90 วัน)</div></div>
+    `;
+  }
+
+  function renderChips() {
+    const statusChips = document.getElementById('statusChips');
+    const defs = [
+      ['all', 'ทั้งหมด', ''],
+      ['critical', 'เลยกำหนด/หมดอายุ', 'crit-chip'],
+      ['warning', 'ใกล้ครบกำหนด', 'warn-chip'],
+      ['ok', 'รอครบกำหนด', ''],
+      ['paid', 'ชำระครบแล้ว', 'good-chip'],
+    ];
+    statusChips.innerHTML = defs.map(([key,label,cls]) =>
+      `<span class="chip ${cls} ${state.statusFilter===key?'active':''}" data-status="${key}">${label}</span>`
+    ).join('');
+    statusChips.querySelectorAll('.chip').forEach(el => {
+      el.addEventListener('click', () => { state.statusFilter = el.dataset.status; render(); });
+    });
+
+    const typeChips = document.getElementById('typeChips');
+    const types = [['all','ทุกประเภท'], ['อนุสิทธิบัตร','อนุสิทธิบัตร'], ['สิทธิบัตรออกแบบ','ออกแบบ'], ['สิทธิบัตรการประดิษฐ์','ประดิษฐ์']];
+    typeChips.innerHTML = types.map(([key,label]) =>
+      `<span class="chip ${state.typeFilter===key?'active':''}" data-type="${key}">${label}</span>`
+    ).join('');
+    typeChips.querySelectorAll('.chip').forEach(el => {
+      el.addEventListener('click', () => { state.typeFilter = el.dataset.type; render(); });
+    });
+  }
+
+  function detailHtml(p) {
+    if (!p.r.length) return '<p style="color:var(--ink-dim)">ไม่มีข้อมูลรายปี</p>';
+    const rows = p.r.map(r => {
+      const [year, due, payFrom, amount, freeUntil, penalty, finalDate, st, note] = r;
+      const cls = note === 'หมดอายุ' ? 'lapsed' : (st === 'ชำระแล้ว' ? 'paid' : '');
+      return `<tr class="${cls}">
+        <td>${year}</td><td>${due}</td><td>${amount}</td><td>${freeUntil}</td>
+        <td>${penalty}</td><td>${finalDate}</td><td>${st}${note?(' · '+note):''}</td>
+      </tr>`;
+    }).join('');
+    return `
+      <h4>ตารางค่าธรรมเนียมรายปีทั้งหมด (จากระบบกรมทรัพย์สินทางปัญญา)</h4>
+      <table class="sched">
+        <thead><tr>
+          <th>ปีที่</th><th>วันครบกำหนด</th><th>จำนวนเงิน</th><th>ชำระได้ถึง (ไม่มีค่าปรับ)</th>
+          <th>ค่าปรับ</th><th>วันสุดท้ายที่ชำระได้</th><th>สถานะ</th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table>`;
+  }
+
+  function render() {
+    renderKpis();
+    const filtered = patents.filter(matches).sort(sortFn);
+    countLine.textContent = `แสดง ${filtered.length} จาก ${patents.length} รายการ`;
+    if (!filtered.length) {
+      tbody.innerHTML = `<tr><td colspan="9" class="empty-msg">ไม่พบรายการที่ตรงกับเงื่อนไข</td></tr>`;
+      return;
+    }
+    tbody.innerHTML = filtered.map(p => {
+      const na = p.na;
+      const yearLabel = na ? na.year : '—';
+      const due = na ? na.due : '—';
+      const amount = na ? na.amount : '—';
+      const finalDate = na ? na.final_date : '—';
+      const isExpanded = state.expanded.has(p.a);
+      return `
+        <tr class="row ${isExpanded?'expanded':''}" data-app="${p.a}" style="--row-accent:${STRIPE[status(p)]}">
+          <td>${pill(p)}</td>
+          <td><span class="type-tag">${TYPE_LABEL[p.t]||p.t||'—'}</span></td>
+          <td>${p.a}</td>
+          <td>${p.p||'—'}</td>
+          <td class="name-cell"><div class="nm">${p.n||'—'}</div><div class="owner">ผู้ขอ/เจ้าของ: ${p.o||'—'}</div><div class="sub">ยื่น ${p.s||'—'} · จดทะเบียน ${p.g||'—'}</div></td>
+          <td>${p.u} ปี</td>
+          <td>${due}${daysNote(p)}</td>
+          <td class="num">${amount}</td>
+          <td>${finalDate}</td>
+        </tr>
+        ${isExpanded ? `<tr class="detail-row"><td colspan="9"><div class="detail-inner">${detailHtml(p)}</div></td></tr>` : ''}
+      `;
+    }).join('');
+
+    tbody.querySelectorAll('tr.row').forEach(tr => {
+      tr.addEventListener('click', () => {
+        const app = tr.dataset.app;
+        if (state.expanded.has(app)) state.expanded.delete(app);
+        else state.expanded.add(app);
+        render();
+      });
+    });
+  }
+
+  // precompute next-action (na) per patent for sort/display convenience
+  patents.forEach(p => {
+    p.na = null;
+    for (const r of p.r) {
+      const [year, due, payFrom, amount, freeUntil, penalty, finalDate, st, note] = r;
+      if (st === 'ยังไม่ชำระ') { p.na = { year, due, payable_from: payFrom, amount, penalty_free_until: freeUntil, penalty, final_date: finalDate, status: st, note }; break; }
+    }
+  });
+
+  searchBox.addEventListener('input', () => { state.q = searchBox.value; render(); });
+  sortSel.addEventListener('change', () => { state.sort = sortSel.value; render(); });
+
+  renderChips();
+  render();
+})();
+</script>
