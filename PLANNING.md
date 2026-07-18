@@ -12,11 +12,14 @@ Weekly patent annual-fee tracking report for Patent To You (บริษัท �
 - `report.html` — generated output (gitignored is NOT set — kept so cloud agent runs have a fallback to diff against, but always regenerated fresh each run).
 
 ## Weekly automation
-A scheduled cloud agent (see https://claude.ai/code/routines) runs weekly:
-1. `python scripts/fetch_fees.py`
-2. `python scripts/build_report.py`
-3. Publish `report.html` as a Claude Artifact to the existing URL: https://claude.ai/code/artifact/b320a8b9-3501-4c0c-b59a-41d3edb0d478
-4. Push-notify the user with items from `WARNING_ITEMS_JSON` (due within 90 days).
+Scheduled cloud agent routine `trig_01YUW1gk2vHhJE4FENk3Cxb3` ("Patent annuity fee weekly refresh", https://claude.ai/code/routines) runs every Monday 08:30 Bangkok (cron `30 1 * * 1` UTC):
+1. `git clone` this repo (public GitHub repo: https://github.com/tanatnong/patent-annuity-tracker — self-contained, no connector needed)
+2. `python scripts/fetch_fees.py`
+3. `python scripts/build_report.py`
+4. Publish `report.html` as a Claude Artifact to the existing URL: https://claude.ai/code/artifact/b320a8b9-3501-4c0c-b59a-41d3edb0d478
+5. Push-notify the user with items from `WARNING_ITEMS_JSON` (due within 90 days).
+
+Repo is intentionally **public** — the GitHub connector's App-install step for private-repo access to cloud routines was not grantable through any reachable UI (OAuth completed but no App install; routine creation kept 403ing with "no access to repository"). Public avoids that entirely since the routine just runs a plain `git clone` over Bash. Data exposed (application numbers + owner names) mirrors what's already public on search.ipthailand.go.th.
 
 ## Known bug fixed (2026-07-18)
 Original status logic trusted the department's "หมดอายุ" (expired) note as the only signal for "overdue" — but that note sometimes lags reality. Fixed to compare the final payable date against today's date directly (`status()` in the report JS, and `status_of()` in `build_report.py`) — both must stay in sync.
