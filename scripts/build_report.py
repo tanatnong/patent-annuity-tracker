@@ -1,6 +1,8 @@
-import json, re
+import json, re, sys
 from pathlib import Path
 from datetime import datetime, date
+
+sys.stdout.reconfigure(encoding="utf-8")
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
